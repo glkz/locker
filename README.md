@@ -1,5 +1,8 @@
-Locker
-=====
+Generic Locker
+==============
+
+This project is a fork of [moby/locker](https://github.com/moby/locker), 
+enhanced with generics support.
 
 locker provides a mechanism for creating finer-grained locking to help
 free up more global locks to handle other tasks.
@@ -23,11 +26,11 @@ import (
 	"sync"
 	"time"
 
-	"github.com/moby/locker"
+	"github.com/glkz/locker"
 )
 
 type important struct {
-	locks *locker.Locker
+	locks *locker.Locker[string]
 	data  map[string]interface{}
 	mu    sync.Mutex
 }
